@@ -11,10 +11,10 @@ USER appuser
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["M6/Opgave1/IBASEmployeeService/IBASEmployeeService.csproj", "M6/Opgave1/IBASEmployeeService/"]
-RUN dotnet restore "M6/Opgave1/IBASEmployeeService/IBASEmployeeService.csproj"
+COPY ["IBASEmployeeService.csproj", "IBASEmployeeService/"]
+RUN dotnet restore "IBASEmployeeService.csproj"
 COPY . .
-WORKDIR "/src/M6/Opgave1/IBASEmployeeService"
+WORKDIR "/src/"
 RUN dotnet build "IBASEmployeeService.csproj" -c Release -o /app/build
 
 FROM build AS publish
